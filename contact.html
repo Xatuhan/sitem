@@ -5,107 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim - Sağlık ve Fitness</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #eee;
-            line-height: 1.6;
+            background-color: #f9f9f9;
         }
-
         header {
-            background: #1e1e1e;
+            background: #222;
             color: #fff;
             padding: 1rem 0;
             text-align: center;
         }
-
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
         }
-
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 0;
             display: flex;
             justify-content: center;
-            background: #222;
+            margin: 0;
         }
-
         nav ul li {
             margin: 0 15px;
         }
-
         nav ul li a {
-            color: #eee;
+            color: #fff;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            display: block;
-            transition: background 0.3s;
         }
-
-        nav ul li a:hover {
-            background: #e63946;
-            border-radius: 5px;
-        }
-
         main {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background: #1e1e1e;
-            margin: 1rem 0;
-            padding: 1.5rem;
+            padding: 1rem;
+            background: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        section h2 {
-            color: #e63946;
-            margin-top: 0;
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
         }
-
-        img {
-            max-width: 100%;
-            border-radius: 8px;
+        form label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
         }
-
-        button {
+        form input, form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
             background: #e63946;
             color: #fff;
             border: none;
             padding: 0.7rem 1.5rem;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s;
         }
-
-        button:hover {
+        form button:hover {
             background: #d62839;
         }
-
-        footer {
-            background: #222;
-            color: #eee;
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-
-        footer a {
-            color: #e63946;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+        #commentList div {
+            margin-bottom: 1rem;
         }
     </style>
 </head>
@@ -133,10 +102,59 @@
             </ul>
             <img src="iletisim.jpeg" alt="İletişim Görseli">
         </section>
+        <section>
+            <h2>Yorumlarınızı Bize Bildirin</h2>
+            <form id="commentForm">
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="comment">Yorumunuz:</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+                
+                <button type="submit">Gönder</button>
+            </form>
+            
+            <h3>Gelen Yorumlar:</h3>
+            <div id="commentList">
+                <p>Henüz bir yorum bulunmuyor.</p>
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Sağlık ve Fitness. Tüm hakları saklıdır.</p>
     </footer>
+    <script>
+        // Form ve liste elemanlarını seçiyoruz
+        const form = document.getElementById("commentForm");
+        const commentList = document.getElementById("commentList");
+
+        // Form gönderildiğinde çalışacak olan olay dinleyicisi
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Sayfanın yeniden yüklenmesini önler
+
+            // Formdaki değerleri al
+            const email = document.getElementById("email").value;
+            const comment = document.getElementById("comment").value;
+
+            // Yorumları listeye ekle
+            const commentElement = document.createElement("div");
+            commentElement.innerHTML = `
+                <p><strong>${email}</strong> dedi ki:</p>
+                <p>${comment}</p>
+                <hr>
+            `;
+
+            // Listeye yeni yorumu ekle
+            commentList.appendChild(commentElement);
+
+            // Eğer ilk yorumsa, "Henüz bir yorum bulunmuyor." mesajını kaldır
+            if (commentList.querySelector("p").textContent === "Henüz bir yorum bulunmuyor.") {
+                commentList.innerHTML = "";
+            }
+
+            // Formu temizle
+            form.reset();
+        });
+    </script>
 </body>
 </html>
-
