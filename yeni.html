@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sağlık ve Fitness</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ağırsağlam tarzında CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: #fff;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            margin-top: 0;
+            color: #222;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        button {
+            background: #e63946;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #d62839;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ana Sayfa -->
+    <header>
+        <h1>Sağlık ve Fitness</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Ana Sayfa</a></li>
+                <li><a href="#egzersiz">Egzersizler</a></li>
+                <li><a href="#diyet">Diyet Planları</a></li>
+                <li><a href="#recipes">Sağlıklı Tarifler</a></li>
+                <li><a href="#contact">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Ana İçerik -->
+    <main>
+        <!-- Ana Sayfa Bölümü -->
+        <section id="home">
+            <h2>Hoş Geldiniz!</h2>
+            <p>Sağlıklı bir yaşam için doğru adrestesiniz. Hedeflerinize ulaşmak için buradayız!</p>
+        </section>
+
+        <!-- Egzersizler Bölümü -->
+        <section id="exercises">
+            <h2>Egzersizler</h2>
+            <p>Farklı seviyelerde kardiyo, güç antrenmanı ve daha fazlasını keşfedin.</p>
+        </section>
+
+        <!-- Diyet Planları Bölümü -->
+        <section id="diet">
+            <h2>Diyet Planları</h2>
+            <p>Kilo verme, kas yapma veya sağlıklı bir yaşam için özel planlar.</p>
+        </section>
+
+        <!-- Sağlıklı Tarifler Bölümü -->
+        <section id="recipes">
+            <h2>Sağlıklı Tarifler</h2>
+            <p>Besleyici ve lezzetli yemek tariflerimizi deneyin.</p>
+        </section>
+
+        <!-- İletişim Bölümü -->
+        <section id="contact">
+            <h2>İletişim</h2>
+            <p>Bizimle iletişime geçmek için formu doldurun.</p>
+            <form>
+                <label for="name">Adınız:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mesajınız:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Gönder</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Sağlık ve Fitness. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
